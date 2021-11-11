@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        applicationId 'com.github.ajalt.flexadapter.sample'
+        minSdkVersion 21
+        targetSdkVersion versions.targetSdk
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName project.VERSION_NAME
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    implementation project(':flexadapter')
+
+    implementation deps.supportDesign
+    implementation deps.supportRecyclerView
+    implementation deps.kotlinStdlib
+}
