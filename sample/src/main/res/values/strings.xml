@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">FlexAdapter</string>
+    <string name="title_drag_all">Move these Icons</string>
+    <string name="title_swipe">This icon can be swiped</string>
+    <string name="title_post_swipe">It\'s gone</string>
+    <string name="title_no_swipe">This icon can\'t move</string>
+    <string name="title_drag_vertical">Reorder these items:</string>
+    <string name="list_drag_01">• One</string>
+    <string name="list_drag_02">• Two</string>
+    <string name="list_drag_03">• Three</string>
+    <string name="list_drag_04">• Four</string>
+    <string name="list_drag_05">• Five</string>
+    <string name="list_drag_06">• Six</string>
+    <string name="snackbar_add_success">Icon added</string>
+    <string name="snackbar_add_failure">No more icons can be added</string>
+    <string name="action_undo">undo</string>
+</resources>

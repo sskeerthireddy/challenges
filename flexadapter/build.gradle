@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.dokka-android'
+apply plugin: 'com.github.dcendents.android-maven'
+
+buildscript {
+    dependencies {
+        classpath deps.buildscript.dokka
+    }
+}
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName project.VERSION_NAME
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+}
+
+dependencies {
+    api deps.supportRecyclerView
+    api deps.kotlinStdlib
+
+    testImplementation deps.robolectric
+    testImplementation deps.junit
+    testImplementation deps.mockitoKotlin
+    testImplementation deps.kotlintest
+    testImplementation deps.xTest
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar, dependsOn: dokka) {
+    classifier = 'javadoc'
+    from dokka.outputDirectory
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
